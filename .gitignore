@@ -3,3 +3,6 @@ fabfile.py
 *.pyc
 habitica.egg-info
 *.swp
+/build
+/dist
+auth.txt
