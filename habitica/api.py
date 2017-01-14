@@ -61,6 +61,8 @@ class Habitica(object):
                                        self.aspect,
                                        str(aspect_id),
                                        self.resource)
+                if method == 'put':
+                    uri = uri.replace('/user','') # Remove 'user' when updating tasks.
                 if resource_id is not None:
                     uri = '%s/%s' % (uri,
                                      str(resource_id))
@@ -91,9 +93,8 @@ class Habitica(object):
             res = getattr(requests, method)(uri, headers=self.headers,
                                             params=kwargs)
 
-        print(res.url)  # debug...
+        # print(res.url)  # debug...
         if res.status_code == requests.codes.ok or requests.codes.created:
-            return res
             if "data" in res.json():
                 return res.json()["data"]
             else:
