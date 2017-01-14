@@ -6,3 +6,4 @@ habitica.egg-info
 /build
 /dist
 auth.txt
+auth.cfg
